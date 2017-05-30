@@ -10,16 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var printLabel: UILabel!
+    
+    enum Car: Int {
+        case BMW = 0
+        case HONDA = 1
+        case SUBARU = 2
+        case TESLA = 3
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func carPressed(_ sender: UIButton) {
+        if sender.tag == Car.BMW.rawValue {
+            printLabel.text = "BMW"
+        } else if sender.tag == Car.HONDA.rawValue {
+            printLabel.text = "HONDA"
+        } else if sender.tag == Car.SUBARU.rawValue {
+            printLabel.text = "SUBARU"
+        } else {
+            printLabel.text = "TESLA"
+        }
     }
-
 
 }
 
